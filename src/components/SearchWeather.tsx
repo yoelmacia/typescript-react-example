@@ -29,12 +29,24 @@ class searchWeather extends Component<searchWeatherState> {
     };
     this.weatherRef = React.createRef();
   }
+  search = () => {
+    const inputValue = this.weatherRef.current.value;
+    fetch(
+      `http://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&APPID=9989ba25d8276a4b1d4d217e8fd2226e&&units=metric`
+    ).then(response => {
+      if (response.status !== 200) {
+        this.setState({ error: true });
+        return;
+      }
 
+      console.log(response.json());
+    });
+  };
   render() {
     return (
       <div>
         <input type="text" ref={this.weatherRef}></input>
-        <button> Search </button>
+        <button onClick={this.search}> Search </button>
       </div>
     );
   }
