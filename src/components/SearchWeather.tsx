@@ -39,7 +39,7 @@ class searchWeather extends Component<{}, searchWeatherState> {
   search = (): void => {
     const inputValue = this.weatherRef.current.value;
     fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&APPID=9989ba25d8276a4b1d4d217e8fd2226e&&units=metric`
+      `http://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&APPID=${process.env.REACT_APP_API_KEY}&&units=metric`
     ).then(response => {
       if (response.status !== 200) {
         this.setState({ error: true });
