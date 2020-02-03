@@ -1,20 +1,6 @@
 import React, { Component } from "react";
 
-interface searchWeatherState {
-  error?: boolean;
-  weather?: weatherState;
-}
-
-interface weatherState {
-  city?: string;
-  temperatureDegree?: number;
-  temperatureMax?: number;
-  temperatureMin?: number;
-  temperatureSensation?: number;
-  weatherType?: string;
-  windSpeed?: number;
-  time?: string;
-}
+import searchWeatherState from "../Interfaces/SearchWeatherState.interface";
 
 class searchWeather extends Component<{}, searchWeatherState> {
   weatherRef: React.RefObject<HTMLInputElement>;
